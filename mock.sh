@@ -23,6 +23,6 @@ if [ "${parameters}" = "configure" ]; then
     exit 1
   fi
 else
-  echo "docker login -u USERNAME -p PASSWORD https://amazonaws.com"
+  echo "docker login -u AWS -p PASSWORD -e none https://dkr.ecr.amazonaws.com"
 fi
 exit 0
