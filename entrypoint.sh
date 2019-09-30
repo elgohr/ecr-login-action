@@ -18,6 +18,7 @@ else
   USERNAME="${connectionParts[0]}"
 fi
 
+echo ""
 echo ::set-output name=username::"${USERNAME}"
 echo ::set-output name=password::"${connectionParts[1]}"
 echo ::set-output name=registry::"${connectionParts[2]}"
