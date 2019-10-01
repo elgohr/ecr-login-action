@@ -23,6 +23,6 @@ if [ "${parameters}" = "configure" ]; then
     exit 1
   fi
 else
-  echo "docker login -u AWS -p PASSWORD -e none https://dkr.ecr.amazonaws.com"
+  echo '{"authorizationData":[{"authorizationToken":"QVdTOkFVVEhfUEFTU1dPUkQK","expiresAt":1569961966.371,"proxyEndpoint":"https://ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com"}]}'
 fi
 exit 0
