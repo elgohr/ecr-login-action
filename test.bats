@@ -4,8 +4,9 @@
   run /entrypoint.sh
 
     local expected='::set-output name=username::AWS
-::set-output name=password::PASSWORD
-::set-output name=registry::https://dkr.ecr.amazonaws.com'
+::add-mask::AUTH_PASSWORD
+::set-output name=password::AUTH_PASSWORD
+::set-output name=registry::https://ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com'
     echo $output
     [ "$output" = "$expected" ]
 }

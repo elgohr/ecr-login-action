@@ -8,16 +8,17 @@ $INPUT_REGION
 text
 EOF
 
-connectionString=$(aws ecr get-login)
-cleanedConnection=$(echo $connectionString | sed -e "s/docker login -u //g" | sed -e "s/ -p//g" | sed -e "s/ -e none//g")
-connectionParts=($cleanedConnection)
+authTokenOutput=$(aws ecr get-authorization-token)
+authString=$(echo "$authTokenOutput" | jq -r '.authorizationData[].authorizationToken' | base64 -d)
+USERNAME=$(echo "$authString" | cut -d: -f1)
+PASSWORD=$(echo "$authString" | cut -d: -f2)
+REGISTRY=$(echo "$authTokenOutput" | jq -r '.authorizationData[].proxyEndpoint')
 
-if [ -z "${connectionParts[0]}" ]; then
+if [ -z "$USERNAME" ]; then
   USERNAME="AWS"
-else
-  USERNAME="${connectionParts[0]}"
 fi
 
-echo ::set-output name=username::"${USERNAME}"
-echo ::set-output name=password::"${connectionParts[1]}"
-echo ::set-output name=registry::"${connectionParts[2]}"
+echo "::set-output name=username::${USERNAME}"
+echo "::add-mask::${PASSWORD}"
+echo "::set-output name=password::${PASSWORD}"
+echo "::set-output name=registry::${REGISTRY}"
