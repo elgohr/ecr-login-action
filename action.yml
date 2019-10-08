@@ -1,0 +1,26 @@
+name: 'AWS ECR Docker Login'
+author: 'Lars Gohr'
+branding:
+  icon: 'log-in'
+  color: 'orange'
+description: 'Logs into ECR and provides Docker credentials'
+inputs:
+  access_key:
+    description: 'The AWS access key'
+    required: true
+  secret_access_key:
+    description: 'The AWS secret access key'
+    required: true
+  region:
+    description: 'The AWS region you would like to login to'
+    required: true
+outputs:
+  username:
+    description: 'The username for logging in'
+  password:
+    description: 'The password for logging in'
+  registry:
+    description: 'The registry to log in to'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -37,3 +37,8 @@ jobs:
 `access_key` is the AWS access key  
 `secret_access_key` is the AWS secret access key  
 `region` the region you would like to login to  
+
+## Outputs
+`username` the username for logging in  
+`password` the password for logging in  
+`registry` the registry to log in to

@@ -1,9 +1,4 @@
 FROM alpine as runtime
-LABEL "com.github.actions.name"="AWS ECR Docker Login"
-LABEL "com.github.actions.description"="Logs into ECR and provides Docker credentials"
-LABEL "com.github.actions.icon"="log-in"
-LABEL "com.github.actions.color"="orange"
-
 LABEL "repository"="https://github.com/elgohr/ecr-login-action"
 LABEL "maintainer"="Lars Gohr"
 
