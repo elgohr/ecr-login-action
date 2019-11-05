@@ -8,7 +8,7 @@ This Action for Docker logs into [AWS ECR](https://aws.amazon.com/de/ecr/) and g
 
 ## Example pipeline
 
-```
+```yaml
 name: Publish Docker
 on: [push]
 jobs:
