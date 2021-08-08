@@ -21,6 +21,8 @@ outputs:
     description: 'The password for logging in'
   registry:
     description: 'The registry to log in to'
+  docker_name:
+    description: 'The name of the docker image'
 runs:
   using: 'docker'
   image: 'docker://lgohr/ecr-login-action:latest'

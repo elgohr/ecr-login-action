@@ -10,6 +10,7 @@ authString=$(echo "$authTokenOutput" | jq -r '.authorizationData[].authorization
 USERNAME=$(echo "$authString" | cut -d: -f1)
 PASSWORD=$(echo "$authString" | cut -d: -f2)
 REGISTRY=$(echo "$authTokenOutput" | jq -r '.authorizationData[].proxyEndpoint')
+DOCKER_NAME=$(echo "$REGISTRY" | sed 's/https:\/\///g')
 
 if [ -z "$USERNAME" ]; then
   USERNAME="AWS"
@@ -19,3 +20,4 @@ echo "::set-output name=username::${USERNAME}"
 echo "::add-mask::${PASSWORD}"
 echo "::set-output name=password::${PASSWORD}"
 echo "::set-output name=registry::${REGISTRY}"
+echo "::set-output name=docker_name::${DOCKER_NAME}"
