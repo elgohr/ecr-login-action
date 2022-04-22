@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+echo ">>> elgohr/ecr-login-action@master is deprecated!"
+echo ">>> Please switch to elgohr/ecr-login-action@v2 for more speed and less dependencies"
+
 export AWS_ACCESS_KEY_ID=$INPUT_ACCESS_KEY
 export AWS_SECRET_ACCESS_KEY=$INPUT_SECRET_ACCESS_KEY
 export AWS_DEFAULT_REGION=$INPUT_REGION
