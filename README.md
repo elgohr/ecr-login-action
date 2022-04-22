@@ -10,21 +10,21 @@ This Action for Docker logs into [AWS ECR](https://aws.amazon.com/de/ecr/) and g
 
 ```yaml
 name: Publish Docker
-on: [push]
+on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - name: Login to ECR
       id: ecr
-      uses: elgohr/ecr-login-action@master
+      uses: elgohr/ecr-login-action@v2
       with:
         access_key: ${{ secrets.AWS_ACCESS_KEY }}
         secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: ${{ secrets.AWS_REGION }}
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v4
       with:
         name: myDocker/repository
         username: ${{ steps.ecr.outputs.username }}

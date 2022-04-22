@@ -1,0 +1,33 @@
+name: Release
+on: 
+  push:
+    branches: [ main ]
+    tags-ignore:
+      - 'v*'
+  pull_request:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build .
+
+  release:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    needs:
+      - test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PUBLISH_TOKEN }} # for pushing to protected branch
+      - name: Publish new version
+        run: |
+          git config --global user.email "no_reply@gohr.digital"
+          git config --global user.name "Release Bot"
+          git tag -fa v2 -m "Update v2 tag"
+          git push origin v2 --force

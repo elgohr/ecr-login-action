@@ -13,5 +13,3 @@ RUN apk add --no-cache coreutils bats ncurses
 ADD test.bats /test.bats
 ADD mock.sh /usr/local/bin/aws
 RUN /test.bats
-
-FROM runtime

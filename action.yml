@@ -23,6 +23,14 @@ outputs:
     description: 'The registry to log in to'
   docker_name:
     description: 'The name of the docker image'
+
 runs:
-  using: 'docker'
-  image: 'docker://lgohr/ecr-login-action:latest'
+  using: 'composite'
+  steps:      
+    - run: $GITHUB_ACTION_PATH/entrypoint.sh
+      shell: bash
+      env:
+        INPUT_ACCESS_KEY: ${{ inputs.access_key }}
+        INPUT_SECRET_ACCESS_KEY: ${{ inputs.secret_access_key }}
+        INPUT_REGION: ${{ inputs.region }}
+        
