@@ -17,17 +17,22 @@ inputs:
 outputs:
   username:
     description: 'The username for logging in'
+    value: ${{ steps.ecr-login.outputs.username }}
   password:
     description: 'The password for logging in'
+    value: ${{ steps.ecr-login.outputs.password }}
   registry:
     description: 'The registry to log in to'
+    value: ${{ steps.ecr-login.outputs.registry }}
   docker_name:
     description: 'The name of the docker image'
+    value: ${{ steps.ecr-login.outputs.docker_name }}
 
 runs:
   using: 'composite'
   steps:      
-    - run: $GITHUB_ACTION_PATH/entrypoint.sh
+    - id: ecr-login
+      run: $GITHUB_ACTION_PATH/entrypoint.sh
       shell: bash
       env:
         INPUT_ACCESS_KEY: ${{ inputs.access_key }}
