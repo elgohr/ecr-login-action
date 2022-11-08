@@ -17,7 +17,11 @@ if [ -z "$USERNAME" ]; then
 fi
 
 echo "::set-output name=username::${USERNAME}"
+echo "username=${USERNAME}" >> "$GITHUB_OUTPUT"
 echo "::add-mask::${PASSWORD}"
 echo "::set-output name=password::${PASSWORD}"
+echo "password=${PASSWORD}" >> "$GITHUB_OUTPUT"
 echo "::set-output name=registry::${REGISTRY}"
+echo "registry=${REGISTRY}" >> "$GITHUB_OUTPUT"
 echo "::set-output name=docker_name::${DOCKER_NAME}"
+echo "docker_name=${DOCKER_NAME}" >> "$GITHUB_OUTPUT"
