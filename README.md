@@ -24,7 +24,7 @@ jobs:
         secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: ${{ secrets.AWS_REGION }}
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@v4
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: myDocker/repository
         username: ${{ steps.ecr.outputs.username }}
