@@ -12,7 +12,7 @@ jobs:
     permissions:
       contents: read
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build .
 
@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: elgohr/ecr-login-action@main
       id: ecr
       with:
@@ -44,7 +44,7 @@ jobs:
       - test
       - integration-test
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.PUBLISH_TOKEN }} # for pushing to protected branch
       - name: Publish new version
