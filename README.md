@@ -1,6 +1,6 @@
 # ECR-Login-Action
 
-[![Actions Status](https://github.com/elgohr/ecr-login-action/workflows/Test/badge.svg)](https://github.com/elgohr/ecr-login-action/actions)
+[![Actions Status](https://github.com/elgohr/ecr-login-action/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/elgohr/ecr-login-action/actions)
 
 This Action for Docker logs into [AWS ECR](https://aws.amazon.com/de/ecr/) and gets the timely bound credentials for Docker.
 
