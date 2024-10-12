@@ -41,5 +41,5 @@ jobs:
 ## Outputs
 `username` the username for logging in  
 `password` the password for logging in  
-`registry` the registry to log in to
-`docker_name` the name of the docker image
+`registry` the registry to log in to  
+`docker_name` the name of the docker image for building and pushing
