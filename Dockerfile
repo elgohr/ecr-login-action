@@ -1,4 +1,4 @@
-FROM python:3.14.0a7-alpine3.20 as runtime
+FROM python:3.14.0b1-alpine3.20 as runtime
 LABEL "repository"="https://github.com/elgohr/ecr-login-action"
 LABEL "maintainer"="Lars Gohr"
 
